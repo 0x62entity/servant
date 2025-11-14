@@ -107,7 +107,7 @@ def cmd_reminder():
         
     res = {
         "response_type": "ephemeral",
-        "text": "ok"
+        "text": f"ok, will remind '{reminder}' in {minutes} minutes"
     }
     return jsonify(res)
 
