@@ -47,21 +47,13 @@ def slack_events():
 @flask.route("/commands/test", methods=["POST"])
 def cmd_test():
     data = request.form
-    user_id = data.get('user_id')
-    channel_id = data.get('channel_id')
-
-    response = {
-        "response_type": "ephemeral",
-        "text": f"User ID: {user_id}\nChannel ID: {channel_id}"
-    }
-
-    return jsonify(response)
+    return Commands.test(data)
 
 @flask.route("/commands/reminder", methods=["POST"])
 def cmd_reminder():
     data = request.form
     
-    Commands.reminder(data, app)
+    return Commands.reminder(data, app)
     
 if __name__ == "__main__":
     flask.run(host="0.0.0.0", port=3001)
