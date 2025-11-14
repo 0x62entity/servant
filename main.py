@@ -1,8 +1,7 @@
 import os
-import time
 from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
-from flask import Flask, jsonify, request
+from flask import Flask, request
 from dotenv import load_dotenv
 
 from commands import Commands
