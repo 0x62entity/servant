@@ -3,6 +3,7 @@ from slack_bolt import App
 from slack_bolt.adapter.flask import SlackRequestHandler
 from flask import Flask, request
 from dotenv import load_dotenv
+from random import randint
 
 from commands import Commands
 
@@ -17,10 +18,25 @@ app = App(
 def handle_mention(event, say):
     user = event["user"]
     thread_ts = event.get("thread_ts") or event["ts"]
-    say(
-        text=f"<@{user}> tf is ur problem",
-        thread_ts=thread_ts
-    )
+    
+    rand = randint(0, 2)
+    
+    match rand:
+        case 0:
+            say(
+                text=f"<@{user}> tf is ur problem",
+                thread_ts=thread_ts
+            )
+        case 1:
+            say(
+                text=f"I AM SLEEPING. DO NOT BOTHER ME",
+                thread_ts=thread_ts
+            )
+        case 2:
+            say(
+                text=f":mad_ping_sock: :very-mad:",
+                thread_ts=thread_ts
+            )
 
 @app.event("member_joined_channel")
 def handle_join_channel(event, say):
