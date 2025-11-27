@@ -5,7 +5,7 @@ from flask import Flask, request
 from dotenv import load_dotenv
 from random import randint
 
-from commands import Commands
+from commands import reminder, test
 
 load_dotenv()
 
@@ -62,13 +62,13 @@ def slack_events():
 @flask.route("/commands/test", methods=["POST"])
 def cmd_test():
     data = request.form
-    return Commands.test(data)
+    return test.test(data)
 
 @flask.route("/commands/reminder", methods=["POST"])
 def cmd_reminder():
     data = request.form
     
-    return Commands.reminder(data, app)
+    return reminder.reminder(data, app)
     
 if __name__ == "__main__":
     flask.run(host="0.0.0.0", port=3001)
