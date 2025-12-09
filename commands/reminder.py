@@ -19,7 +19,7 @@ def reminder(data, app):
     if len(split) < 2:
         res = {
             "response_type": "ephemeral",
-            "text": "noooo u need at least two argument"
+            "text": "noooo u need at least two argument, haiyaa :uncleroger:"
         }
         return jsonify(res)
     
@@ -33,7 +33,7 @@ def reminder(data, app):
         app.client.chat_scheduleMessage(
             channel=channel_id,
             post_at=post_at,
-            text=f"<@U092839T3A7> {reminder}"
+            text=f"<@U092839T3A7> reminder: {reminder}"
         )
     except ValueError:
         res = {

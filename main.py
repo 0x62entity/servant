@@ -67,7 +67,6 @@ def cmd_test():
 @flask.route("/commands/reminder", methods=["POST"])
 def cmd_reminder():
     data = request.form
-    
     return reminder.reminder(data, app)
     
 if __name__ == "__main__":
