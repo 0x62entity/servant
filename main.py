@@ -52,6 +52,11 @@ def handle_join_channel(event, say):
         text=f"<@{user_id}> welcome to my ~shithole~ channel. <@U092839T3A7> get ur ass over here."
     )
 
+@app.message("potato")
+def potato(message, say) :
+    user = message['user']
+    say(f"<@{user}> 🥔")
+
 flask = Flask(__name__)
 handler = SlackRequestHandler(app)
 
